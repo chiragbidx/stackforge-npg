@@ -1,0 +1,1 @@
+// Will be replaced with new Collection Details (Titles) page.
