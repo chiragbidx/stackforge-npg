@@ -1,1 +1,0 @@
-// Will be replaced with new Collection Details actions (titles).
