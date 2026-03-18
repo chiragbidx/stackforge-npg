@@ -1,0 +1,1 @@
+// New StreamPilot Collections main page will be emitted in next steps.
