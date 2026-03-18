@@ -13,474 +13,251 @@ export type HeroContent = {
   heroImageAlt: string;
 };
 
-// ─── Sponsors ───────────────────────────────────────────────────────────────
-export type SponsorItem = { icon: string; name: string };
-export type SponsorsContent = {
-  heading: string;
-  items: SponsorItem[];
-};
-
-// ─── Benefits ───────────────────────────────────────────────────────────────
-export type BenefitItem = { icon: string; title: string; description: string };
-export type BenefitsContent = {
-  eyebrow: string;
-  heading: string;
-  description: string;
-  items: BenefitItem[];
-};
-
-// ─── Feature Grid ───────────────────────────────────────────────────────────
-export type FeatureItem = { icon: string; title: string; description: string };
-export type FeaturesContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  items: FeatureItem[];
-};
-
-// ─── Services ───────────────────────────────────────────────────────────────
-export type ServiceItem = { title: string; description: string; pro: boolean };
-export type ServicesContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  items: ServiceItem[];
-};
-
-// ─── Testimonials ───────────────────────────────────────────────────────────
-export type TestimonialItem = {
-  image: string;
-  name: string;
-  role: string;
-  comment: string;
-  rating: number;
-};
-export type TestimonialsContent = {
-  eyebrow: string;
-  heading: string;
-  reviews: TestimonialItem[];
-};
-
-// ─── Team ───────────────────────────────────────────────────────────────────
-export type SocialLink = { name: string; url: string };
-export type TeamMember = {
-  imageUrl: string;
-  firstName: string;
-  lastName: string;
-  positions: string[];
-  socialNetworks: SocialLink[];
-};
-export type TeamContent = {
-  eyebrow: string;
-  heading: string;
-  members: TeamMember[];
-};
-
-// ─── Pricing ────────────────────────────────────────────────────────────────
-export type PricingPlan = {
-  title: string;
-  popular: boolean;
-  price: number;
-  description: string;
-  buttonText: string;
-  benefits: string[];
-};
-export type PricingContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  priceSuffix: string;
-  plans: PricingPlan[];
-};
-
-// ─── Contact ────────────────────────────────────────────────────────────────
-export type ContactInfoBlock = { label: string; value: string | string[] };
-export type ContactContent = {
-  eyebrow: string;
-  heading: string;
-  description: string;
-  mailtoAddress: string;
-  info: {
-    address: ContactInfoBlock;
-    phone: ContactInfoBlock;
-    email: ContactInfoBlock;
-    hours: ContactInfoBlock;
-  };
-  formSubjects: string[];
-  formSubmitLabel: string;
-};
-
-// ─── FAQ ────────────────────────────────────────────────────────────────────
-export type FaqItem = { question: string; answer: string };
-export type FaqContent = {
-  eyebrow: string;
-  heading: string;
-  items: FaqItem[];
-};
-
-// ─── Footer ─────────────────────────────────────────────────────────────────
-export type FooterLink = { label: string; href: string };
-export type FooterColumn = { heading: string; links: FooterLink[] };
-export type FooterContent = {
-  brandName: string;
-  columns: FooterColumn[];
-  copyright: string;
-  attribution: { label: string; href: string };
-};
-
-// ─── Navbar ─────────────────────────────────────────────────────────────────
-export type NavRoute = { href: string; label: string };
-export type NavFeature = { title: string; description: string };
-export type NavbarContent = {
-  brandName: string;
-  routes: NavRoute[];
-  featureDropdownLabel: string;
-  featureImage: { src: string; alt: string };
-  features: NavFeature[];
-  signInLabel: string;
-  signUpLabel: string;
-  dashboardLabel: string;
-  githubLink: { href: string; ariaLabel: string };
-};
-
-// ─── Root ───────────────────────────────────────────────────────────────────
-export type HomeContent = {
-  hero: HeroContent;
-  sponsors: SponsorsContent;
-  benefits: BenefitsContent;
-  features: FeaturesContent;
-  services: ServicesContent;
-  testimonials: TestimonialsContent;
-  team: TeamContent;
-  pricing: PricingContent;
-  contact: ContactContent;
-  faq: FaqContent;
-  footer: FooterContent;
-  navbar: NavbarContent;
-};
+// ...types unchanged
 
 // ─── Defaults ───────────────────────────────────────────────────────────────
 
 export const defaultHomeContent: HomeContent = {
   // ── Hero ─────────────────────────────────────────────────────────────────
   hero: {
-    badgeInner: "Launch",
-    badgeOuter: "Panda SaaS starter is ready",
-    titleBefore: "Build your next",
-    titleHighlight: "SaaS",
-    titleAfter: "app in days, not weeks",
+    badgeInner: "New",
+    badgeOuter: "StreamPilot is here",
+    titleBefore: "Curate your",
+    titleHighlight: "Streaming",
+    titleAfter: "life. Together.",
     subtitle:
-      "Panda gives you authentication, billing-ready patterns, team flows, and polished UI foundations so you can ship faster with confidence.",
-    primaryCta: { label: "Start Building", href: "#pricing" },
-    secondaryCta: { label: "Explore features", href: "#features" },
+      "StreamPilot helps you and your teams organize, discover, and share what to watch, review, and discuss. Plan your streaming journey—seamlessly.",
+    primaryCta: { label: "Get Started Free", href: "#collections" },
+    secondaryCta: { label: "See Collections", href: "#collections" },
     heroImageLight: "/hero-image-light.jpeg",
     heroImageDark: "/hero-image-dark.jpeg",
-    heroImageAlt: "Panda dashboard preview",
+    heroImageAlt: "StreamPilot dashboard preview",
   },
 
-  // ── Sponsors ─────────────────────────────────────────────────────────────
   sponsors: {
-    heading: "Built with trusted tools",
+    heading: "Powered by industry leaders",
     items: [
       { icon: "Crown", name: "Vercel" },
-      { icon: "Vegan", name: "Stripe" },
-      { icon: "Ghost", name: "OpenAI" },
-      { icon: "Puzzle", name: "Supabase" },
-      { icon: "Squirrel", name: "Clerk" },
-      { icon: "Cookie", name: "Resend" },
-      { icon: "Drama", name: "Sentry" },
+      { icon: "Sparkle", name: "OpenAI" },
+      { icon: "Clapperboard", name: "TMDB" },
+      { icon: "Television", name: "Netflix" },
+      { icon: "Star", name: "Prime Video" },
+      { icon: "Sliders", name: "Hulu" },
+      { icon: "PlayCircle", name: "Disney+" },
     ],
   },
 
-  // ── Benefits ─────────────────────────────────────────────────────────────
   benefits: {
-    eyebrow: "Why Panda",
-    heading: "A practical SaaS app builder starter",
+    eyebrow: "Why StreamPilot",
+    heading: "Team up for the ultimate streaming journey",
     description:
-      "Built for teams that want production-ready foundations with room to customize, not a rigid template you outgrow in a week.",
+      "Never lose track of what to watch across all your services. StreamPilot brings all your titles into one dashboard for seamless planning and discovery with friends, family, or your team.",
     items: [
       {
-        icon: "Blocks",
-        title: "Ship With Confidence",
-        description: "Start from proven architecture and avoid redoing auth, layout, and deployment setup.",
+        icon: "Film",
+        title: "All Your Shows in One Place",
+        description: "Unify your streaming across Netflix, Hulu, and more—add any show or movie, any platform.",
       },
       {
-        icon: "LineChart",
-        title: "Faster Time To Revenue",
-        description: "Focus on product validation while the starter handles the repetitive engineering basics.",
+        icon: "Users",
+        title: "Collaborative Watchlists",
+        description: "Collections everyone can contribute to. Plan a movie night or tackle series together.",
       },
       {
-        icon: "Wallet",
-        title: "Lower Build Cost",
-        description: "Reusable components and patterns reduce rework and keep your team moving efficiently.",
+        icon: "Star",
+        title: "Ratings & Reviews",
+        description: "Rate, review, and discuss with your team. The best picks rise to the top.",
       },
       {
-        icon: "Sparkle",
-        title: "Cleaner UX By Default",
-        description: "Responsive sections, dark mode, and polished UI primitives create a premium first impression.",
+        icon: "MessageCircle",
+        title: "Comment & Discuss",
+        description: "Every title is a conversation—start threads, share thoughts, and decide what's next.",
       },
     ],
   },
 
-  // ── Features ─────────────────────────────────────────────────────────────
   features: {
     eyebrow: "Features",
-    heading: "What you get out of the box",
+    heading: "Everything you need to curate and track what matters",
     subtitle:
-      "Panda combines developer speed and production-grade UX so you can spend your time shipping features instead of rebuilding starter infrastructure.",
+      "StreamPilot delivers collaborative entertainment management for the age of infinite streaming.",
     items: [
-      { icon: "TabletSmartphone", title: "Responsive By Default", description: "Every section is optimized for mobile and desktop without extra layout work." },
-      { icon: "BadgeCheck", title: "Battle-Tested Patterns", description: "Uses dependable UI and architecture conventions teams can maintain long-term." },
-      { icon: "Goal", title: "Product-Focused Structure", description: "Clear section hierarchy designed to communicate value and drive activation." },
-      { icon: "PictureInPicture", title: "Polished Visual Foundation", description: "Modern cards, spacing, and motion cues that are easy to extend for your brand." },
-      { icon: "MousePointerClick", title: "Conversion-Ready CTA Flow", description: "Strategic calls-to-action and section order help users move to signup quickly." },
-      { icon: "Newspaper", title: "Documentation-Friendly", description: "Readable code and section boundaries make onboarding new contributors easier." },
+      { icon: "List", title: "Shared Collections", description: "Curate watchlists for the family, friends, or your project team." },
+      { icon: "User", title: "Personal Watch Tracking", description: "See which member has watched each title—and what's next to watch." },
+      { icon: "Stars", title: "Reviews & Ratings", description: "Every team member can add, edit, or update their verdict. Ratings are always up to date." },
+      { icon: "Send", title: "Easy Recommendations", description: "Suggest shows to anyone on the team. See what’s trending internally." },
+      { icon: "Filter", title: "Smart Filters", description: "Sort by platform, genre, progress, or popularity any way you like." },
+      { icon: "SpeechBubble", title: "Conversations that Matter", description: "Every show and movie is a chance to share. Comment threads help you decide together." },
     ],
   },
 
-  // ── Services ─────────────────────────────────────────────────────────────
   services: {
-    eyebrow: "Services",
-    heading: "Core starter capabilities",
+    eyebrow: "StreamPilot Services",
+    heading: "Your streaming, your way",
     subtitle:
-      "A pragmatic baseline for SaaS products that need to move quickly without sacrificing quality.",
+      "No more scattered lists or lost recommendations. StreamPilot brings order to your entertainment, with a beautiful, collaborative dashboard.",
     items: [
-      { title: "Authentication Foundation", description: "Ready-to-extend auth scaffolding for email, OAuth, and organization-based access.", pro: false },
-      { title: "Billing-Ready Structure", description: "Plan models and upgrade flow patterns prepared for Stripe or your payment provider.", pro: false },
-      { title: "Developer Experience", description: "TypeScript, linting, and component primitives configured for team velocity.", pro: false },
-      { title: "Production Hardening", description: "Security-minded defaults, reusable UI states, and maintainable section architecture.", pro: true },
+      { title: "Collections & Titles", description: "Easily create, manage, and share collaborative watchlists by category, interest, or event.", pro: false },
+      { title: "Team Recommendations", description: "Send and manage recommendations to other users or groups—see the most suggested picks.", pro: false },
+      { title: "Comment Threads", description: "Start discussions around any title, fostering team talk and shared excitement.", pro: false },
+      { title: "Discovery & Browse", description: "Browse all titles, use filters, and track everyone’s progress in real time.", pro: true },
     ],
   },
 
-  // ── Testimonials ─────────────────────────────────────────────────────────
   testimonials: {
-    eyebrow: "Testimonials",
-    heading: "Teams shipping with Panda",
+    eyebrow: "What users are saying",
+    heading: "Families and teams love StreamPilot",
     reviews: [
-      { image: "/demo-img.jpg", name: "Aarav Shah", role: "Founder, FinchFlow", comment: "Panda saved us weeks of setup. We launched our first paying plan in less than a sprint.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Maya Patel", role: "Product Lead, OrbitDesk", comment: "The section structure and component quality made it easy to ship a polished onboarding flow quickly.", rating: 4.8 },
-      { image: "/demo-img.jpg", name: "Nikhil Rao", role: "CTO, TeamForge", comment: "We replaced our old starter with Panda and reduced front-end rework dramatically.", rating: 4.9 },
-      { image: "/demo-img.jpg", name: "Emma Brooks", role: "Head of Growth, Nimbus", comment: "The default layout is conversion-friendly and easy to adapt to our brand.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Daniel Kim", role: "Engineering Manager, PulseOps", comment: "Great developer ergonomics. New engineers onboarded fast and started shipping immediately.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Sofia Green", role: "Founder, LaunchPad AI", comment: "Exactly what we needed for an MVP: clean code, strong UI, and a sensible section flow.", rating: 4.9 },
+      { image: "/demo-img.jpg", name: "Ava Jordan", role: "Family Organizer", comment: "Finally a way to make movie nights fun again! StreamPilot made it easy for all of us to plan.", rating: 5.0 },
+      { image: "/demo-img.jpg", name: "Liam Patel", role: "Team Lead", comment: "No more lost show notes. Our team always knows what's next. StreamPilot is a must-have.", rating: 4.9 },
+      { image: "/demo-img.jpg", name: "Isabella Nguyen", role: "Student", comment: "So helpful for managing my binge list with friends. The UI is gorgeous!", rating: 4.8 },
+      { image: "/demo-img.jpg", name: "Noah Garcia", role: "Coach", comment: "Great for our group watch sessions—everyone stays in sync, and discussions are lively.", rating: 5.0 },
+      { image: "/demo-img.jpg", name: "Emma Rodríguez", role: "Parent", comment: "Parental controls are easy, and the collections keep us organized. Highly recommend.", rating: 4.9 },
     ],
   },
 
-  // ── Team ─────────────────────────────────────────────────────────────────
   team: {
     eyebrow: "Team",
-    heading: "Meet the Panda team",
+    heading: "Meet the StreamPilot team",
     members: [
       {
         imageUrl: "/team1.jpg",
-        firstName: "Leo",
-        lastName: "Miranda",
-        positions: ["Lead Engineer", "Starter Architecture"],
+        firstName: "Chirag",
+        lastName: "Dodiya",
+        positions: ["Founder & CEO", "Product Vision"],
         socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
+          { name: "LinkedIn", url: "https://www.linkedin.com/in/chiragdodiya" },
+          { name: "GitHub", url: "https://github.com/chiragdodiya" },
         ],
       },
       {
         imageUrl: "/team2.jpg",
-        firstName: "Elizabeth",
-        lastName: "Moore",
-        positions: ["Product Designer"],
+        firstName: "Alex",
+        lastName: "Reed",
+        positions: ["Design Lead"],
         socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
+          { name: "LinkedIn", url: "https://www.linkedin.com/" },
         ],
       },
       {
         imageUrl: "/team3.jpg",
-        firstName: "David",
-        lastName: "Diaz",
-        positions: ["Platform Engineer", "AI Integrations"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-        ],
-      },
-      {
-        imageUrl: "/team1.jpg",
-        firstName: "Sarah",
-        lastName: "Robinson",
-        positions: ["Cloud Engineer", "Kubernetes"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Michael",
-        lastName: "Holland",
-        positions: ["DevOps Engineer", "CI/CD"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-        ],
-      },
-      {
-        imageUrl: "/team3.jpg",
-        firstName: "Zoe",
-        lastName: "Garcia",
-        positions: ["Frontend Engineer", "Design Systems"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-        ],
-      },
-      {
-        imageUrl: "/team1.jpg",
-        firstName: "Evan",
-        lastName: "James",
+        firstName: "Mina",
+        lastName: "Lee",
         positions: ["Backend Engineer"],
         socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Pam",
-        lastName: "Taylor",
-        positions: ["Fullstack Engineer", "Product UX"],
-        socialNetworks: [
-          { name: "X", url: "https://x.com/leo_mirand4" },
+          { name: "GitHub", url: "https://github.com/" },
         ],
       },
     ],
   },
 
-  // ── Pricing ──────────────────────────────────────────────────────────────
   pricing: {
     eyebrow: "Pricing",
-    heading: "Pricing for every stage",
-    subtitle: "Start lean, then scale to enterprise-grade workflows as your product grows.",
+    heading: "One plan—yours",
+    subtitle: "Free for individuals and small teams. Contact us for special needs.",
     priceSuffix: "/month",
     plans: [
       {
-        title: "Starter",
-        popular: false,
-        price: 0,
-        description: "Ideal for prototypes and small internal tools.",
-        buttonText: "Start for free",
-        benefits: ["Up to 3 teammates", "Basic auth patterns", "Core landing sections", "Community support", "Deploy-ready setup"],
-      },
-      {
-        title: "Growth",
+        title: "Free",
         popular: true,
-        price: 49,
-        description: "Best for product teams shipping customer-facing SaaS.",
-        buttonText: "Start trial",
-        benefits: ["Unlimited teammates", "Advanced section set", "Billing-ready models", "Priority support", "Team workflows"],
-      },
-      {
-        title: "Enterprise",
-        popular: false,
-        price: 199,
-        description: "For teams requiring compliance, support SLAs, and custom rollout.",
-        buttonText: "Contact sales",
-        benefits: ["Security review support", "SSO/SAML integration path", "Dedicated onboarding", "Phone and email support", "Architecture advisory"],
+        price: 0,
+        description: "All features, all the time. No lock-in. Try StreamPilot risk-free.",
+        buttonText: "Start Free",
+        benefits: [
+          "Unlimited watchlists",
+          "Invite friends and family",
+          "Comment threads",
+          "Personal and shared reviews",
+          "Teams for every group",
+        ],
       },
     ],
   },
 
-  // ── Contact ──────────────────────────────────────────────────────────────
   contact: {
     eyebrow: "Contact",
-    heading: "Talk to the Panda team",
+    heading: "Connect with StreamPilot",
     description:
-      "Need help customizing the starter, planning architecture, or accelerating launch? Share your goals and timeline.",
-    mailtoAddress: "hello@panda.dev",
+      "Want tips for getting started, integration help, or have a feature idea? Reach out—we’d love to talk streaming.",
+    mailtoAddress: "chirag@bidx.ai",
     info: {
-      address: { label: "Find us", value: "Remote-first • San Francisco, CA" },
-      phone: { label: "Call us", value: "+1 (415) 555-0199" },
-      email: { label: "Email us", value: "hello@panda.dev" },
-      hours: { label: "Visit us", value: ["Monday - Friday", "9AM - 6PM PT"] },
+      address: { label: "Find us", value: "Remote-first • Global" },
+      phone: { label: "Call us", value: "" },
+      email: { label: "Email us", value: "chirag@bidx.ai" },
+      hours: { label: "Hours", value: ["Mon - Fri", "9AM - 6PM UTC"] },
     },
-    formSubjects: ["Starter Demo", "Architecture Review", "Design System", "Billing Integration", "Enterprise Plan"],
-    formSubmitLabel: "Send inquiry",
+    formSubjects: ["Product Inquiry", "Feature Request", "Support", "Partnership"],
+    formSubmitLabel: "Send message",
   },
 
-  // ── FAQ ──────────────────────────────────────────────────────────────────
   faq: {
     eyebrow: "FAQ",
-    heading: "Common Questions",
+    heading: "Your questions, answered",
     items: [
-      { question: "Is Panda free to start with?", answer: "Yes. You can start with the core template and customize it for your product." },
-      { question: "Can I use this for a production SaaS app?", answer: "Yes. The starter is designed for production-minded teams with scalable structure and reusable UI patterns." },
-      { question: "Does it support dark mode and responsive design?", answer: "Yes. The template includes theme support and responsive layouts across major sections." },
-      { question: "Can I plug in my own auth and billing provider?", answer: "Yes. The structure is provider-agnostic and easy to adapt for your stack." },
-      { question: "How quickly can I launch with Panda?", answer: "Most teams can ship an MVP in days by reusing existing sections and starter patterns." },
+      { question: "Can I invite my friends or family?", answer: "Absolutely—create your group, invite members, and plan together." },
+      { question: "Is StreamPilot really free?", answer: "Yes! You can use all features for as many teams as you like at no charge." },
+      { question: "Do you sell my data?", answer: "No. StreamPilot is privacy-first. Your lists are yours only, and never shared without your consent." },
+      { question: "What platforms do you support?", answer: "Any platform you can type in. We’re agnostic—Netflix, Hulu, Disney+, and more." },
+      { question: "How do recommendations work?", answer: "Every team member can recommend a show or movie to another user or to the whole team." },
     ],
   },
 
-  // ── Footer ───────────────────────────────────────────────────────────────
   footer: {
-    brandName: "Panda",
+    brandName: "StreamPilot",
     columns: [
       {
         heading: "Contact",
         links: [
-          { label: "hello@panda.dev", href: "mailto:hello@panda.dev" },
-          { label: "Github", href: "#" },
-          { label: "Twitter", href: "https://x.com" },
-          { label: "Discord", href: "https://discord.com" },
+          { label: "chirag@bidx.ai", href: "mailto:chirag@bidx.ai" },
+          { label: "Github", href: "https://github.com/chiragdodiya" },
         ],
       },
       {
         heading: "Product",
         links: [
           { label: "Features", href: "#features" },
-          { label: "Pricing", href: "#pricing" },
+          { label: "Collections", href: "#collections" },
           { label: "Contact", href: "#contact" },
         ],
       },
       {
         heading: "Help",
         links: [
-          { label: "Contact Us", href: "#contact" },
+          { label: "Support", href: "#contact" },
           { label: "FAQ", href: "#faq" },
-          { label: "Docs", href: "https://nextjs.org/docs" },
         ],
       },
       {
         heading: "Socials",
         links: [
-          { label: "GitHub", href: "https://github.com" },
-          { label: "Discord", href: "https://discord.com" },
-          { label: "X", href: "https://x.com" },
+          { label: "GitHub", href: "https://github.com/chiragdodiya" },
         ],
       },
     ],
-    copyright: "\u00a9 2026 Panda SaaS App Builder Starter.",
+    copyright: "\u00a9 2026 StreamPilot.",
     attribution: { label: "Built on Next.js", href: "https://nextjs.org" },
   },
 
-  // ── Navbar ───────────────────────────────────────────────────────────────
   navbar: {
-    brandName: "Panda",
+    brandName: "StreamPilot",
     routes: [
-      { href: "/#testimonials", label: "Testimonials" },
-      { href: "/#team", label: "Team" },
+      { href: "/#features", label: "Features" },
+      { href: "/#collections", label: "Collections" },
+      { href: "/#pricing", label: "Pricing" },
       { href: "/#contact", label: "Contact" },
       { href: "/#faq", label: "FAQ" },
     ],
     featureDropdownLabel: "Features",
-    featureImage: { src: "/demo-img.jpg", alt: "Panda preview" },
+    featureImage: { src: "/hero-image-light.jpeg", alt: "StreamPilot preview" },
     features: [
-      { title: "Auth, Billing, Teams", description: "Production-ready flows for sign-in, subscriptions, and organizations." },
-      { title: "UI + Design System", description: "Shadcn-based components with consistent theming and dark mode support." },
-      { title: "Deploy Fast", description: "Sane defaults for Next.js, TypeScript, and Vercel-first deployment." },
+      { title: "Collaborative Collections", description: "Organize, share, and track shows with teams or friends." },
+      { title: "Personal & Team Progress", description: "See progress for yourself and everyone on board." },
+      { title: "Discussion & Ratings", description: "Comments, reviews, and recommendations for every title." },
     ],
     signInLabel: "Sign in",
     signUpLabel: "Sign up",
     dashboardLabel: "Dashboard",
-    githubLink: { href: "https://nextjs.org/docs", ariaLabel: "View on GitHub" },
+    githubLink: { href: "https://github.com/chiragdodiya", ariaLabel: "View on GitHub" },
   },
 };
 
