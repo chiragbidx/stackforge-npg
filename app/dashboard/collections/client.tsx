@@ -1,0 +1,1 @@
+// New StreamPilot Collections main client component will be emitted in next steps.
