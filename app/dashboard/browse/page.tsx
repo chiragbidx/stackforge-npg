@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { eq } from "drizzle-orm";
+import { eq, inArray } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { getAuthSession } from "@/lib/auth/session";
 import { titles, teamMembers, users, collections } from "@/lib/db/schema";
@@ -19,26 +19,7 @@ export default async function BrowsePage() {
     .limit(1);
   if (!teamMember) redirect("/dashboard/team");
 
-  // Fetch all titles for this team (all collections)
-  const result = await db
-    .select({
-      id: titles.id,
-      name: titles.name,
-      type: titles.type,
-      platform: titles.platform,
-      genres: titles.genres,
-      description: titles.description,
-      posterUrl: titles.posterUrl,
-      createdBy: titles.createdBy,
-      createdAt: titles.createdAt,
-      updatedAt: titles.updatedAt,
-      collectionId: titles.collectionId,
-    })
-    .from(titles)
-    .where(eq(titles.collectionId, collections.id))
-    .limit(200);
-
-  // List collections for filter display
+  // List collections for this team for filter display and subquery
   const allCollections = await db
     .select({
       id: collections.id,
@@ -46,6 +27,30 @@ export default async function BrowsePage() {
     })
     .from(collections)
     .where(eq(collections.teamId, teamMember.teamId));
+
+  const collectionIds = allCollections.map((c) => c.id);
+
+  // Fetch all titles for these collections (for this team) -- FIXED QUERY
+  const result =
+    collectionIds.length > 0
+      ? await db
+          .select({
+            id: titles.id,
+            name: titles.name,
+            type: titles.type,
+            platform: titles.platform,
+            genres: titles.genres,
+            description: titles.description,
+            posterUrl: titles.posterUrl,
+            createdBy: titles.createdBy,
+            createdAt: titles.createdAt,
+            updatedAt: titles.updatedAt,
+            collectionId: titles.collectionId,
+          })
+          .from(titles)
+          .where(inArray(titles.collectionId, collectionIds))
+          .limit(200)
+        : [];
 
   // Fetch user info for name display
   const usersMap: Record<string, { firstName: string; lastName: string }> = {};
